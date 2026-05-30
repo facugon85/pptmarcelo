@@ -50,30 +50,30 @@ body{padding:40px 20px 80px}
 .s1 .side-bar{position:absolute;right:0;top:0;width:8%;height:100%;background:var(--mid);border-left:1px solid var(--border);display:flex;align-items:center;justify-content:center}
 .s1 .side-text{font-size:10px;color:var(--dim);letter-spacing:3px;font-weight:700;writing-mode:vertical-rl;transform:rotate(180deg)}
 .s1 .content{position:absolute;left:7%;top:0;right:8%;height:100%;display:flex;flex-direction:column;justify-content:center;gap:0}
-.s1 .eyebrow{font-size:clamp(8px,1vw,11px);color:var(--dim);letter-spacing:3px;font-weight:700;text-transform:uppercase;margin-bottom:2%}
+.s1 .eyebrow{font-size:clamp(9px,1.1vw,13px);color:var(--dim);letter-spacing:3px;font-weight:700;text-transform:uppercase;margin-bottom:2%}
 .s1 .title{font-family:'Bebas Neue',sans-serif;font-size:clamp(48px,9vw,110px);line-height:.95;margin-bottom:3%}
 .s1 .title span{color:var(--gold)}
-.s1 .subtitle{font-size:clamp(11px,1.5vw,18px);color:var(--muted);font-style:italic;margin-bottom:5%}
+.s1 .subtitle{font-size:clamp(12px,1.6vw,20px);color:var(--muted);font-style:italic;margin-bottom:5%}
 .s1 .badges{display:flex;gap:2%;flex-wrap:wrap}
-.s1 .badge{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:.4em 1em;font-size:clamp(8px,.9vw,11px);color:var(--muted)}
-.s1 .footer{position:absolute;bottom:4%;left:7%;font-size:clamp(7px,.8vw,9px);color:var(--dim)}
+.s1 .badge{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:.4em 1em;font-size:clamp(9px,1vw,13px);color:var(--muted)}
+.s1 .footer{position:absolute;bottom:4%;left:7%;font-size:clamp(8px,.9vw,11px);color:var(--dim)}
 
 /* ── SLIDE 2: CONCEPTO ── */
 .s2 .label,.s3 .label,.s4 .label,.s5 .label,.s6 .label,.s7 .label,.s8 .label{
-  position:absolute;top:7%;left:6%;font-size:clamp(7px,.8vw,10px);color:var(--blue2);font-weight:700;letter-spacing:2.5px;text-transform:uppercase
+  position:absolute;top:7%;left:6%;font-size:clamp(8px,.9vw,12px);color:var(--blue2);font-weight:700;letter-spacing:2.5px;text-transform:uppercase
 }
 .s2 .h1,.s3 .h1,.s4 .h1,.s5 .h1,.s6 .h1,.s7 .h1{
   position:absolute;top:13%;left:6%;right:6%;
-  font-family:'Bebas Neue',sans-serif;font-size:clamp(28px,5.5vw,58px);line-height:1;
+  font-family:'Bebas Neue',sans-serif;font-size:clamp(30px,6vw,64px);line-height:1;
 }
 .h1 span{color:var(--gold)}
-.s2 .desc{position:absolute;top:30%;left:6%;width:52%;font-size:clamp(9px,1.1vw,13px);color:var(--muted);line-height:1.6}
+.s2 .desc{position:absolute;top:30%;left:6%;width:52%;font-size:clamp(10px,1.2vw,15px);color:var(--muted);line-height:1.6}
 .s2 .steps{position:absolute;bottom:6%;left:6%;right:6%;display:grid;grid-template-columns:repeat(4,1fr);gap:2%}
 .step{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:4% 5%;position:relative;overflow:hidden}
 .step::before{content:'';position:absolute;left:0;top:0;width:3px;height:100%;background:var(--blue)}
 .step-icon{font-size:clamp(16px,2vw,22px);margin-bottom:6%}
-.step-title{font-size:clamp(8px,.9vw,11px);font-weight:700;color:var(--text);margin-bottom:3%}
-.step-desc{font-size:clamp(7px,.8vw,9px);color:var(--muted);line-height:1.4}
+.step-title{font-size:clamp(9px,1vw,13px);font-weight:700;color:var(--text);margin-bottom:3%}
+.step-desc{font-size:clamp(8px,.9vw,11px);color:var(--muted);line-height:1.4}
 
 /* ── SLIDE 3: FUNCIONALIDADES ── */
 .s3 .label{color:var(--blue2)}
@@ -81,19 +81,19 @@ body{padding:40px 20px 80px}
 .feat{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:5%;position:relative;overflow:hidden;transition:border-color .2s}
 .feat:hover{border-color:var(--border2)}
 .feat-circle{width:clamp(24px,3vw,36px);height:clamp(24px,3vw,36px);border-radius:50%;background:rgba(37,99,235,.2);border:1px solid var(--blue2);display:flex;align-items:center;justify-content:center;font-size:clamp(12px,1.5vw,18px);margin-bottom:4%}
-.feat-title{font-size:clamp(8px,.95vw,12px);font-weight:700;color:var(--text);margin-bottom:2%}
-.feat-desc{font-size:clamp(7px,.8vw,9px);color:var(--muted);line-height:1.4}
+.feat-title{font-size:clamp(9px,1.05vw,14px);font-weight:700;color:var(--text);margin-bottom:2%}
+.feat-desc{font-size:clamp(8px,.9vw,11px);color:var(--muted);line-height:1.4}
 
 /* ── SLIDE 4: ADMIN ── */
 .s4 .label{color:var(--gold)}
 .s4 .cols{position:absolute;top:26%;left:6%;right:6%;bottom:6%;display:grid;grid-template-columns:repeat(3,1fr);gap:2%}
 .admin-col{background:var(--card);border:1px solid var(--border);border-radius:8px;overflow:hidden}
-.admin-head{padding:4% 5%;font-size:clamp(8px,.9vw,11px);font-weight:700;color:var(--text);display:flex;align-items:center;gap:6%}
+.admin-head{padding:4% 5%;font-size:clamp(9px,1vw,13px);font-weight:700;color:var(--text);display:flex;align-items:center;gap:6%}
 .admin-head.blue{background:rgba(37,99,235,.2);border-bottom:1px solid rgba(37,99,235,.3)}
 .admin-head.gold{background:rgba(212,168,67,.2);border-bottom:1px solid rgba(212,168,67,.3)}
 .admin-head.green{background:rgba(34,197,94,.2);border-bottom:1px solid rgba(34,197,94,.3)}
 .admin-items{padding:4% 5%;display:flex;flex-direction:column;gap:5%}
-.admin-item{display:flex;align-items:flex-start;gap:4%;font-size:clamp(7px,.8vw,9.5px);color:var(--muted);line-height:1.4}
+.admin-item{display:flex;align-items:flex-start;gap:4%;font-size:clamp(8px,.9vw,11px);color:var(--muted);line-height:1.4}
 .admin-bar{width:3px;min-height:clamp(20px,2.5vw,30px);border-radius:2px;flex-shrink:0;margin-top:2%}
 .bar-blue{background:var(--blue)}
 .bar-gold{background:var(--gold)}
@@ -105,30 +105,30 @@ body{padding:40px 20px 80px}
 .premio{background:var(--card);border-radius:8px;overflow:hidden;display:flex;flex-direction:column}
 .premio-a{border:1px solid rgba(34,197,94,.5)}
 .premio-b{border:1px solid rgba(59,130,246,.5)}
-.premio-head{padding:3% 5%;font-size:clamp(8px,.9vw,11px);font-weight:700;display:flex;align-items:center;gap:5%}
+.premio-head{padding:3% 5%;font-size:clamp(9px,1vw,13px);font-weight:700;display:flex;align-items:center;gap:5%}
 .premio-a .premio-head{background:rgba(34,197,94,.15);color:var(--green);border-bottom:1px solid rgba(34,197,94,.3)}
 .premio-b .premio-head{background:rgba(37,99,235,.15);color:var(--blue2);border-bottom:1px solid rgba(37,99,235,.3)}
 .premio-body{padding:4% 5%;flex:1}
-.premio-name{font-size:clamp(12px,1.5vw,18px);font-weight:700;color:var(--text);margin-bottom:3%}
-.premio-desc{font-size:clamp(7px,.8vw,10px);color:var(--muted);line-height:1.5;margin-bottom:5%}
-.premio-code{background:var(--mid);border:1px solid var(--border);border-radius:4px;padding:2.5% 5%;font-family:'Bebas Neue',sans-serif;font-size:clamp(11px,1.4vw,18px);color:var(--gold);letter-spacing:2px;text-align:center}
-.s5 .antifraude{position:absolute;bottom:4%;left:6%;right:6%;text-align:center;font-size:clamp(7px,.7vw,9px);color:var(--dim);font-style:italic}
+.premio-name{font-size:clamp(13px,1.6vw,20px);font-weight:700;color:var(--text);margin-bottom:3%}
+.premio-desc{font-size:clamp(8px,.9vw,12px);color:var(--muted);line-height:1.5;margin-bottom:5%}
+.premio-code{background:var(--mid);border:1px solid var(--border);border-radius:4px;padding:2.5% 5%;font-family:'Bebas Neue',sans-serif;font-size:clamp(12px,1.5vw,20px);color:var(--gold);letter-spacing:2px;text-align:center}
+.s5 .antifraude{position:absolute;bottom:4%;left:6%;right:6%;text-align:center;font-size:clamp(8px,.8vw,11px);color:var(--dim);font-style:italic}
 
 /* ── SLIDE 6: PRECIOS ── */
 .s6 .label{color:var(--gold)}
-.s6 .table{position:absolute;top:26%;left:6%;right:6%;display:flex;flex-direction:column;gap:1.2%}
-.price-row{display:flex;align-items:center;padding:2.2% 3%;border-radius:6px}
+.s6 .table{position:absolute;top:26%;left:6%;right:6%;bottom:15%;display:flex;flex-direction:column;gap:1%}
+.price-row{display:flex;align-items:center;padding:1.8% 3%;border-radius:6px}
 .price-row.even{background:var(--card)}
 .price-row.odd{background:var(--mid)}
 .price-row.total{background:var(--gold);border-radius:6px}
 .price-label{flex:1}
-.price-name{font-size:clamp(9px,1.1vw,13px);color:var(--text);font-weight:500}
-.price-row.total .price-name{color:#060D1A;font-weight:800;font-size:clamp(10px,1.2vw,14px)}
-.price-note{font-size:clamp(7px,.8vw,9px);color:var(--muted);font-style:italic;margin-top:1%}
+.price-name{font-size:clamp(10px,1.2vw,15px);color:var(--text);font-weight:500}
+.price-row.total .price-name{color:#060D1A;font-weight:800;font-size:clamp(11px,1.3vw,16px)}
+.price-note{font-size:clamp(8px,.9vw,11px);color:var(--muted);font-style:italic;margin-top:1%}
 .price-row.total .price-note{color:rgba(6,13,26,.7)}
-.price-val{font-family:'Bebas Neue',sans-serif;font-size:clamp(14px,1.8vw,22px);color:var(--gold);text-align:right;min-width:20%}
-.price-row.total .price-val{color:#060D1A;font-size:clamp(18px,2.5vw,30px)}
-.s6 .cond{position:absolute;bottom:4%;left:6%;right:6%;background:var(--card);border:1px solid var(--border);border-left:4px solid var(--blue);border-radius:4px;padding:2% 3%;font-size:clamp(7px,.8vw,9.5px);color:var(--muted)}
+.price-val{font-family:'Bebas Neue',sans-serif;font-size:clamp(16px,2vw,25px);color:var(--gold);text-align:right;min-width:20%}
+.price-row.total .price-val{color:#060D1A;font-size:clamp(20px,2.8vw,34px)}
+.s6 .cond{position:absolute;bottom:3%;left:6%;right:6%;background:var(--card);border:1px solid var(--border);border-left:4px solid var(--blue);border-radius:4px;padding:1.5% 3%;font-size:clamp(8px,.9vw,11px);color:var(--muted)}
 
 /* ── SLIDE 7: CONDICIONES ── */
 .s7 .label{color:var(--blue2)}
@@ -136,12 +136,12 @@ body{padding:40px 20px 80px}
 .s7 .right{position:absolute;top:26%;left:52%;right:6%;bottom:12%;background:var(--card);border:1.5px solid var(--gold);border-radius:8px;overflow:hidden}
 .cond-item{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:5%;position:relative;overflow:hidden;flex:1;display:flex;flex-direction:column;justify-content:space-between}
 .cond-item::before{content:'';position:absolute;left:0;top:0;width:4px;height:100%;background:var(--blue)}
-.cond-item-title{font-size:clamp(8px,.9vw,11px);font-weight:700;color:var(--text);margin-bottom:5%;display:flex;align-items:center;gap:5%}
-.cond-item-desc{font-size:clamp(7px,.8vw,9.5px);color:var(--muted);line-height:1.5}
-.prop-head{padding:4% 6%;background:rgba(212,168,67,.15);border-bottom:1px solid rgba(212,168,67,.3);font-size:clamp(8px,.9vw,10px);font-weight:700;color:var(--gold)}
-.prop-body{padding:5% 6%;font-size:clamp(7px,.85vw,10px);color:var(--muted);line-height:1.7}
+.cond-item-title{font-size:clamp(9px,1vw,13px);font-weight:700;color:var(--text);margin-bottom:5%;display:flex;align-items:center;gap:5%}
+.cond-item-desc{font-size:clamp(8px,.9vw,11px);color:var(--muted);line-height:1.5}
+.prop-head{padding:4% 6%;background:rgba(212,168,67,.15);border-bottom:1px solid rgba(212,168,67,.3);font-size:clamp(9px,1vw,12px);font-weight:700;color:var(--gold)}
+.prop-body{padding:5% 6%;font-size:clamp(8px,.95vw,12px);color:var(--muted);line-height:1.7}
 .prop-body p{margin-bottom:4%}
-.s7 .foot{position:absolute;bottom:3%;left:6%;right:6%;font-size:clamp(6px,.7vw,8.5px);color:var(--dim);font-style:italic}
+.s7 .foot{position:absolute;bottom:3%;left:6%;right:6%;font-size:clamp(7px,.8vw,10px);color:var(--dim);font-style:italic}
 
 /* ── SLIDE 8: CIERRE ── */
 .s8{background:var(--bg)}
@@ -150,12 +150,12 @@ body{padding:40px 20px 80px}
 .s8 .content{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;text-align:center}
 .s8 .big1{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,7vw,82px);color:var(--text);line-height:.95}
 .s8 .big2{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,7vw,82px);color:var(--gold);line-height:.95;margin-bottom:3%}
-.s8 .tagline{font-size:clamp(9px,1.1vw,13px);color:var(--muted);font-style:italic;line-height:1.7;margin-bottom:4%}
+.s8 .tagline{font-size:clamp(10px,1.2vw,15px);color:var(--muted);font-style:italic;line-height:1.7;margin-bottom:4%}
 .s8 .price-box{background:var(--card);border:1.5px solid var(--gold);border-radius:8px;padding:2% 5%;display:flex;align-items:center;gap:2%;flex-wrap:wrap;justify-content:center}
-.s8 .p-main{font-family:'Bebas Neue',sans-serif;font-size:clamp(22px,3.5vw,42px);color:var(--gold)}
-.s8 .p-sep{font-size:clamp(10px,1.2vw,15px);color:var(--muted)}
-.s8 .p-sub{font-family:'Bebas Neue',sans-serif;font-size:clamp(16px,2.5vw,30px);color:var(--blue2)}
-.s8 .foot{position:absolute;bottom:4%;left:6%;right:6%;text-align:center;font-size:clamp(6px,.7vw,8.5px);color:var(--dim)}
+.s8 .p-main{font-family:'Bebas Neue',sans-serif;font-size:clamp(24px,3.8vw,46px);color:var(--gold)}
+.s8 .p-sep{font-size:clamp(11px,1.3vw,17px);color:var(--muted)}
+.s8 .p-sub{font-family:'Bebas Neue',sans-serif;font-size:clamp(18px,2.7vw,33px);color:var(--blue2)}
+.s8 .foot{position:absolute;bottom:4%;left:6%;right:6%;text-align:center;font-size:clamp(7px,.8vw,10px);color:var(--dim)}
 
 /* print */
 @media print{

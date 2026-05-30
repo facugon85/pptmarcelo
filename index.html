@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Prode 2026 — Propuesta Comercial</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#060D1A;--card:#111F35;--mid:#0D1628;
+  --border:#1E3352;--border2:#2A4568;
+  --gold:#D4A843;--gold2:#F5C842;
+  --blue:#2563EB;--blue2:#3B82F6;
+  --green:#22C55E;--text:#F0F4FF;
+  --muted:#94A3C0;--dim:#4D6080;
+  --w:10in;--h:5.625in;
+}
+
+html{background:#1a1a2e;font-family:'DM Sans',sans-serif;color:var(--text)}
+body{padding:40px 20px 80px}
+
+/* nav dots */
+.nav{position:fixed;right:24px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:10px;z-index:100}
+.nav-dot{width:8px;height:8px;border-radius:50%;background:var(--dim);cursor:pointer;transition:all .3s;border:none;padding:0}
+.nav-dot.active{background:var(--gold);transform:scale(1.4)}
+.nav-dot:hover{background:var(--muted)}
+
+/* slide wrapper */
+.deck{display:flex;flex-direction:column;gap:32px;max-width:var(--w);margin:0 auto}
+.slide{
+  position:relative;width:100%;aspect-ratio:16/9;
+  background:var(--bg);border-radius:16px;overflow:hidden;
+  box-shadow:0 32px 80px rgba(0,0,0,.7);
+  opacity:0;transform:translateY(40px);
+  transition:opacity .6s ease, transform .6s ease;
+}
+.slide.visible{opacity:1;transform:translateY(0)}
+
+/* slide counter */
+.slide::after{
+  content:attr(data-n);position:absolute;bottom:18px;right:24px;
+  font-size:11px;color:var(--dim);letter-spacing:1px;font-weight:600;
+}
+
+/* ── SLIDE 1: PORTADA ── */
+.s1{background:var(--bg)}
+.s1 .glow-top{position:absolute;top:-20%;left:20%;width:60%;height:80%;background:radial-gradient(ellipse,rgba(26,58,108,.6),transparent 70%)}
+.s1 .glow-gold{position:absolute;bottom:0;right:5%;width:40%;height:60%;background:radial-gradient(ellipse,rgba(212,168,67,.08),transparent 70%)}
+.s1 .side-bar{position:absolute;right:0;top:0;width:8%;height:100%;background:var(--mid);border-left:1px solid var(--border);display:flex;align-items:center;justify-content:center}
+.s1 .side-text{font-size:10px;color:var(--dim);letter-spacing:3px;font-weight:700;writing-mode:vertical-rl;transform:rotate(180deg)}
+.s1 .content{position:absolute;left:7%;top:0;right:8%;height:100%;display:flex;flex-direction:column;justify-content:center;gap:0}
+.s1 .eyebrow{font-size:clamp(8px,1vw,11px);color:var(--dim);letter-spacing:3px;font-weight:700;text-transform:uppercase;margin-bottom:2%}
+.s1 .title{font-family:'Bebas Neue',sans-serif;font-size:clamp(48px,9vw,110px);line-height:.95;margin-bottom:3%}
+.s1 .title span{color:var(--gold)}
+.s1 .subtitle{font-size:clamp(11px,1.5vw,18px);color:var(--muted);font-style:italic;margin-bottom:5%}
+.s1 .badges{display:flex;gap:2%;flex-wrap:wrap}
+.s1 .badge{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:.4em 1em;font-size:clamp(8px,.9vw,11px);color:var(--muted)}
+.s1 .footer{position:absolute;bottom:4%;left:7%;font-size:clamp(7px,.8vw,9px);color:var(--dim)}
+
+/* ── SLIDE 2: CONCEPTO ── */
+.s2 .label,.s3 .label,.s4 .label,.s5 .label,.s6 .label,.s7 .label,.s8 .label{
+  position:absolute;top:7%;left:6%;font-size:clamp(7px,.8vw,10px);color:var(--blue2);font-weight:700;letter-spacing:2.5px;text-transform:uppercase
+}
+.s2 .h1,.s3 .h1,.s4 .h1,.s5 .h1,.s6 .h1,.s7 .h1{
+  position:absolute;top:13%;left:6%;right:6%;
+  font-family:'Bebas Neue',sans-serif;font-size:clamp(28px,5.5vw,58px);line-height:1;
+}
+.h1 span{color:var(--gold)}
+.s2 .desc{position:absolute;top:30%;left:6%;width:52%;font-size:clamp(9px,1.1vw,13px);color:var(--muted);line-height:1.6}
+.s2 .steps{position:absolute;bottom:6%;left:6%;right:6%;display:grid;grid-template-columns:repeat(4,1fr);gap:2%}
+.step{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:4% 5%;position:relative;overflow:hidden}
+.step::before{content:'';position:absolute;left:0;top:0;width:3px;height:100%;background:var(--blue)}
+.step-icon{font-size:clamp(16px,2vw,22px);margin-bottom:6%}
+.step-title{font-size:clamp(8px,.9vw,11px);font-weight:700;color:var(--text);margin-bottom:3%}
+.step-desc{font-size:clamp(7px,.8vw,9px);color:var(--muted);line-height:1.4}
+
+/* ── SLIDE 3: FUNCIONALIDADES ── */
+.s3 .label{color:var(--blue2)}
+.s3 .grid{position:absolute;top:26%;left:6%;right:6%;bottom:6%;display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(2,1fr);gap:2%}
+.feat{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:5%;position:relative;overflow:hidden;transition:border-color .2s}
+.feat:hover{border-color:var(--border2)}
+.feat-circle{width:clamp(24px,3vw,36px);height:clamp(24px,3vw,36px);border-radius:50%;background:rgba(37,99,235,.2);border:1px solid var(--blue2);display:flex;align-items:center;justify-content:center;font-size:clamp(12px,1.5vw,18px);margin-bottom:4%}
+.feat-title{font-size:clamp(8px,.95vw,12px);font-weight:700;color:var(--text);margin-bottom:2%}
+.feat-desc{font-size:clamp(7px,.8vw,9px);color:var(--muted);line-height:1.4}
+
+/* ── SLIDE 4: ADMIN ── */
+.s4 .label{color:var(--gold)}
+.s4 .cols{position:absolute;top:26%;left:6%;right:6%;bottom:6%;display:grid;grid-template-columns:repeat(3,1fr);gap:2%}
+.admin-col{background:var(--card);border:1px solid var(--border);border-radius:8px;overflow:hidden}
+.admin-head{padding:4% 5%;font-size:clamp(8px,.9vw,11px);font-weight:700;color:var(--text);display:flex;align-items:center;gap:6%}
+.admin-head.blue{background:rgba(37,99,235,.2);border-bottom:1px solid rgba(37,99,235,.3)}
+.admin-head.gold{background:rgba(212,168,67,.2);border-bottom:1px solid rgba(212,168,67,.3)}
+.admin-head.green{background:rgba(34,197,94,.2);border-bottom:1px solid rgba(34,197,94,.3)}
+.admin-items{padding:4% 5%;display:flex;flex-direction:column;gap:5%}
+.admin-item{display:flex;align-items:flex-start;gap:4%;font-size:clamp(7px,.8vw,9.5px);color:var(--muted);line-height:1.4}
+.admin-bar{width:3px;min-height:clamp(20px,2.5vw,30px);border-radius:2px;flex-shrink:0;margin-top:2%}
+.bar-blue{background:var(--blue)}
+.bar-gold{background:var(--gold)}
+.bar-green{background:var(--green)}
+
+/* ── SLIDE 5: PREMIOS ── */
+.s5 .label{color:var(--green)}
+.s5 .cols{position:absolute;top:26%;left:6%;right:6%;bottom:16%;display:grid;grid-template-columns:1fr 1fr;gap:3%}
+.premio{background:var(--card);border-radius:8px;overflow:hidden;display:flex;flex-direction:column}
+.premio-a{border:1px solid rgba(34,197,94,.5)}
+.premio-b{border:1px solid rgba(59,130,246,.5)}
+.premio-head{padding:3% 5%;font-size:clamp(8px,.9vw,11px);font-weight:700;display:flex;align-items:center;gap:5%}
+.premio-a .premio-head{background:rgba(34,197,94,.15);color:var(--green);border-bottom:1px solid rgba(34,197,94,.3)}
+.premio-b .premio-head{background:rgba(37,99,235,.15);color:var(--blue2);border-bottom:1px solid rgba(37,99,235,.3)}
+.premio-body{padding:4% 5%;flex:1}
+.premio-name{font-size:clamp(12px,1.5vw,18px);font-weight:700;color:var(--text);margin-bottom:3%}
+.premio-desc{font-size:clamp(7px,.8vw,10px);color:var(--muted);line-height:1.5;margin-bottom:5%}
+.premio-code{background:var(--mid);border:1px solid var(--border);border-radius:4px;padding:2.5% 5%;font-family:'Bebas Neue',sans-serif;font-size:clamp(11px,1.4vw,18px);color:var(--gold);letter-spacing:2px;text-align:center}
+.s5 .antifraude{position:absolute;bottom:4%;left:6%;right:6%;text-align:center;font-size:clamp(7px,.7vw,9px);color:var(--dim);font-style:italic}
+
+/* ── SLIDE 6: PRECIOS ── */
+.s6 .label{color:var(--gold)}
+.s6 .table{position:absolute;top:26%;left:6%;right:6%;display:flex;flex-direction:column;gap:1.2%}
+.price-row{display:flex;align-items:center;padding:2.2% 3%;border-radius:6px}
+.price-row.even{background:var(--card)}
+.price-row.odd{background:var(--mid)}
+.price-row.total{background:var(--gold);border-radius:6px}
+.price-label{flex:1}
+.price-name{font-size:clamp(9px,1.1vw,13px);color:var(--text);font-weight:500}
+.price-row.total .price-name{color:#060D1A;font-weight:800;font-size:clamp(10px,1.2vw,14px)}
+.price-note{font-size:clamp(7px,.8vw,9px);color:var(--muted);font-style:italic;margin-top:1%}
+.price-row.total .price-note{color:rgba(6,13,26,.7)}
+.price-val{font-family:'Bebas Neue',sans-serif;font-size:clamp(14px,1.8vw,22px);color:var(--gold);text-align:right;min-width:20%}
+.price-row.total .price-val{color:#060D1A;font-size:clamp(18px,2.5vw,30px)}
+.s6 .cond{position:absolute;bottom:4%;left:6%;right:6%;background:var(--card);border:1px solid var(--border);border-left:4px solid var(--blue);border-radius:4px;padding:2% 3%;font-size:clamp(7px,.8vw,9.5px);color:var(--muted)}
+
+/* ── SLIDE 7: CONDICIONES ── */
+.s7 .label{color:var(--blue2)}
+.s7 .left{position:absolute;top:26%;left:6%;width:44%;bottom:12%;display:flex;flex-direction:column;gap:2.5%}
+.s7 .right{position:absolute;top:26%;left:52%;right:6%;bottom:12%;background:var(--card);border:1.5px solid var(--gold);border-radius:8px;overflow:hidden}
+.cond-item{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:5%;position:relative;overflow:hidden;flex:1;display:flex;flex-direction:column;justify-content:space-between}
+.cond-item::before{content:'';position:absolute;left:0;top:0;width:4px;height:100%;background:var(--blue)}
+.cond-item-title{font-size:clamp(8px,.9vw,11px);font-weight:700;color:var(--text);margin-bottom:5%;display:flex;align-items:center;gap:5%}
+.cond-item-desc{font-size:clamp(7px,.8vw,9.5px);color:var(--muted);line-height:1.5}
+.prop-head{padding:4% 6%;background:rgba(212,168,67,.15);border-bottom:1px solid rgba(212,168,67,.3);font-size:clamp(8px,.9vw,10px);font-weight:700;color:var(--gold)}
+.prop-body{padding:5% 6%;font-size:clamp(7px,.85vw,10px);color:var(--muted);line-height:1.7}
+.prop-body p{margin-bottom:4%}
+.s7 .foot{position:absolute;bottom:3%;left:6%;right:6%;font-size:clamp(6px,.7vw,8.5px);color:var(--dim);font-style:italic}
+
+/* ── SLIDE 8: CIERRE ── */
+.s8{background:var(--bg)}
+.s8 .glow-top{position:absolute;top:-30%;left:10%;width:80%;height:80%;background:radial-gradient(ellipse,rgba(212,168,67,.06),transparent 70%)}
+.s8 .glow-blue{position:absolute;bottom:0;right:0;width:50%;height:70%;background:radial-gradient(ellipse,rgba(37,99,235,.07),transparent 70%)}
+.s8 .content{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;text-align:center}
+.s8 .big1{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,7vw,82px);color:var(--text);line-height:.95}
+.s8 .big2{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,7vw,82px);color:var(--gold);line-height:.95;margin-bottom:3%}
+.s8 .tagline{font-size:clamp(9px,1.1vw,13px);color:var(--muted);font-style:italic;line-height:1.7;margin-bottom:4%}
+.s8 .price-box{background:var(--card);border:1.5px solid var(--gold);border-radius:8px;padding:2% 5%;display:flex;align-items:center;gap:2%;flex-wrap:wrap;justify-content:center}
+.s8 .p-main{font-family:'Bebas Neue',sans-serif;font-size:clamp(22px,3.5vw,42px);color:var(--gold)}
+.s8 .p-sep{font-size:clamp(10px,1.2vw,15px);color:var(--muted)}
+.s8 .p-sub{font-family:'Bebas Neue',sans-serif;font-size:clamp(16px,2.5vw,30px);color:var(--blue2)}
+.s8 .foot{position:absolute;bottom:4%;left:6%;right:6%;text-align:center;font-size:clamp(6px,.7vw,8.5px);color:var(--dim)}
+
+/* print */
+@media print{
+  html{background:#fff}
+  body{padding:0}
+  .nav{display:none}
+  .slide{box-shadow:none;border-radius:0;page-break-after:always;opacity:1!important;transform:none!important}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV DOTS -->
+<nav class="nav" id="nav"></nav>
+
+<div class="deck" id="deck">
+
+<!-- ═══ SLIDE 1 ═══ -->
+<div class="slide s1" data-n="01 / 08">
+  <div class="glow-top"></div>
+  <div class="glow-gold"></div>
+  <div class="side-bar"><span class="side-text">11 JUN — 19 JUL · 2026</span></div>
+  <div class="content">
+    <div class="eyebrow">Propuesta Comercial · 2025</div>
+    <div class="title">PRODE <span>2026</span></div>
+    <div class="subtitle">App de predicciones deportivas para bares · Mundial FIFA</div>
+    <div class="badges">
+      <div class="badge">⚽ 104 partidos</div>
+      <div class="badge">🏆 Premios automáticos</div>
+      <div class="badge">📱 Mobile-first</div>
+      <div class="badge">🔐 Login con Google</div>
+    </div>
+  </div>
+  <div class="footer">Confidencial · Desarrollo a medida</div>
+</div>
+
+<!-- ═══ SLIDE 2 ═══ -->
+<div class="slide s2" data-n="02 / 08">
+  <div class="label">01 / CONCEPTO</div>
+  <div class="h1">¿Qué es <span>Prode 2026</span>?</div>
+  <div class="desc">
+    Una app de predicciones deportivas pensada para bares y locales durante el Mundial FIFA 2026.
+    Los clientes predicen resultados desde el celular, y si aciertan reciben un código único para
+    canjear un premio en el mostrador.<br><br>
+    <strong style="color:var(--text)">Sin descargar nada. Sin contraseñas. Solo Google o Facebook.</strong>
+  </div>
+  <div class="steps">
+    <div class="step"><div class="step-icon">📱</div><div class="step-title">El cliente entra</div><div class="step-desc">Login con Google o Facebook desde el celular</div></div>
+    <div class="step"><div class="step-icon">⚽</div><div class="step-title">Predice el marcador</div><div class="step-desc">Carga su resultado antes del pitazo</div></div>
+    <div class="step"><div class="step-icon">🎯</div><div class="step-title">Acierta</div><div class="step-desc">Se genera un código único automáticamente</div></div>
+    <div class="step"><div class="step-icon">🍺</div><div class="step-title">Cobra en barra</div><div class="step-desc">Muestra el código al bartender y listo</div></div>
+  </div>
+</div>
+
+<!-- ═══ SLIDE 3 ═══ -->
+<div class="slide s3" data-n="03 / 08">
+  <div class="label">02 / FUNCIONALIDADES</div>
+  <div class="h1">Vista del <span>cliente</span></div>
+  <div class="grid">
+    <div class="feat"><div class="feat-circle">🔐</div><div class="feat-title">Login social</div><div class="feat-desc">Google o Facebook. Sin formularios ni contraseñas.</div></div>
+    <div class="feat"><div class="feat-circle">⚽</div><div class="feat-title">Predecir partidos</div><div class="feat-desc">Marcador exacto antes del pitazo. Bloqueado al confirmar.</div></div>
+    <div class="feat"><div class="feat-circle">📊</div><div class="feat-title">Historial personal</div><div class="feat-desc">Exactos, ganadores y puntos acumulados por partido.</div></div>
+    <div class="feat"><div class="feat-circle">🎫</div><div class="feat-title">Mis premios</div><div class="feat-desc">Códigos únicos generados automáticamente al acertar.</div></div>
+    <div class="feat"><div class="feat-circle">🏆</div><div class="feat-title">Ranking general</div><div class="feat-desc">Tabla de posiciones con todos los participantes del bar.</div></div>
+    <div class="feat"><div class="feat-circle">📱</div><div class="feat-title">Mobile-first</div><div class="feat-desc">Funciona desde el celular sin instalar nada.</div></div>
+  </div>
+</div>
+
+<!-- ═══ SLIDE 4 ═══ -->
+<div class="slide s4" data-n="04 / 08">
+  <div class="label">03 / ADMINISTRACIÓN</div>
+  <div class="h1">Panel del <span>bar</span></div>
+  <div class="cols">
+    <div class="admin-col">
+      <div class="admin-head blue">📋 Carga de resultados</div>
+      <div class="admin-items">
+        <div class="admin-item"><div class="admin-bar bar-blue"></div><span>Ingresa el marcador final de cada partido</span></div>
+        <div class="admin-item"><div class="admin-bar bar-blue"></div><span>El sistema evalúa todas las predicciones automáticamente</span></div>
+        <div class="admin-item"><div class="admin-bar bar-blue"></div><span>Genera los códigos de premio al instante</span></div>
+      </div>
+    </div>
+    <div class="admin-col">
+      <div class="admin-head gold">🎫 Validar cupones</div>
+      <div class="admin-items">
+        <div class="admin-item"><div class="admin-bar bar-gold"></div><span>El bartender ingresa el código del cliente</span></div>
+        <div class="admin-item"><div class="admin-bar bar-gold"></div><span>El sistema confirma si es válido o ya fue usado</span></div>
+        <div class="admin-item"><div class="admin-bar bar-gold"></div><span>Lo marca como canjeado con un clic</span></div>
+      </div>
+    </div>
+    <div class="admin-col">
+      <div class="admin-head green">👥 Panel de usuarios</div>
+      <div class="admin-items">
+        <div class="admin-item"><div class="admin-bar bar-green"></div><span>Lista completa de participantes</span></div>
+        <div class="admin-item"><div class="admin-bar bar-green"></div><span>Estadísticas por usuario</span></div>
+        <div class="admin-item"><div class="admin-bar bar-green"></div><span>Premios pendientes de cobro en tiempo real</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ SLIDE 5 ═══ -->
+<div class="slide s5" data-n="05 / 08">
+  <div class="label">04 / PREMIOS</div>
+  <div class="h1">Sistema de <span>premios</span></div>
+  <div class="cols">
+    <div class="premio premio-a">
+      <div class="premio-head">🎯 PREMIO A</div>
+      <div class="premio-body">
+        <div class="premio-name">Resultado exacto</div>
+        <div class="premio-desc">El cliente predijo el marcador exacto del partido. El sistema genera un código único al confirmar el resultado.</div>
+        <div class="premio-code">WC26-EXACT-A3F9K2</div>
+      </div>
+    </div>
+    <div class="premio premio-b">
+      <div class="premio-head">✅ PREMIO B</div>
+      <div class="premio-body">
+        <div class="premio-name">Ganador correcto</div>
+        <div class="premio-desc">El cliente predijo el equipo ganador aunque no acertó el marcador exacto. También genera un código único para canjear.</div>
+        <div class="premio-code">WC26-WIN-7TH2M9</div>
+      </div>
+    </div>
+  </div>
+  <div class="antifraude">🔒 Cada código es de un solo uso · Queda registrado en el sistema al ser canjeado · No se puede duplicar</div>
+</div>
+
+<!-- ═══ SLIDE 6 ═══ -->
+<div class="slide s6" data-n="06 / 08">
+  <div class="label">05 / INVERSIÓN</div>
+  <div class="h1">Propuesta <span>económica</span></div>
+  <div class="table">
+    <div class="price-row even">
+      <div class="price-label"><div class="price-name">Desarrollo de la aplicación</div><div class="price-note">Frontend + backend completo</div></div>
+      <div class="price-val">$200.000</div>
+    </div>
+    <div class="price-row odd">
+      <div class="price-label"><div class="price-name">Deploy e infraestructura</div><div class="price-note">Hosting durante todo el torneo</div></div>
+      <div class="price-val">$50.000</div>
+    </div>
+    <div class="price-row even">
+      <div class="price-label"><div class="price-name">Soporte técnico (11 jun – 19 jul)</div><div class="price-note">Atención durante los 40 días del Mundial</div></div>
+      <div class="price-val">$50.000</div>
+    </div>
+    <div class="price-row total">
+      <div class="price-label"><div class="price-name">TOTAL DESARROLLO</div></div>
+      <div class="price-val">$300.000</div>
+    </div>
+    <div class="price-row odd">
+      <div class="price-label"><div class="price-name">Base de datos (mensual, renovable)</div><div class="price-note">Continúa activa mientras se renueve</div></div>
+      <div class="price-val" style="color:var(--blue2)">$25.000/mes</div>
+    </div>
+  </div>
+  <div class="cond">50% al inicio ($150.000) · 50% contra entrega y deploy · Primer mes de base de datos incluido en el segundo pago</div>
+</div>
+
+<!-- ═══ SLIDE 7 ═══ -->
+<div class="slide s7" data-n="07 / 08">
+  <div class="label">06 / CONDICIONES</div>
+  <div class="h1">Lo que <span>incluye</span></div>
+  <div class="left">
+    <div class="cond-item">
+      <div class="cond-item-title">☁️ Infraestructura en la nube</div>
+      <div class="cond-item-desc">Hosting, base de datos y disponibilidad durante todo el torneo (11 jun – 19 jul).</div>
+    </div>
+    <div class="cond-item">
+      <div class="cond-item-title">🔧 Soporte técnico incluido</div>
+      <div class="cond-item-desc">Atención durante los 40 días del Mundial. Si algo falla, se resuelve.</div>
+    </div>
+    <div class="cond-item">
+      <div class="cond-item-title">🔒 Seguridad</div>
+      <div class="cond-item-desc">Autenticación con Google/Facebook, datos seguros, códigos de un solo uso.</div>
+    </div>
+  </div>
+  <div class="right">
+    <div class="prop-head">💡 PROPIEDAD DEL DESARROLLO</div>
+    <div class="prop-body">
+      <p>El código desarrollado queda de su propiedad y puede reutilizarse en futuras ediciones del torneo.</p>
+      <p>Copa del Mundo 2030, Copa América, Eurocopa u otro torneo.</p>
+      <p>Cualquier actualización futura tiene un costo significativamente menor al de este desarrollo inicial.</p>
+    </div>
+  </div>
+  <div class="foot">Al finalizar el torneo (19 jul), el servicio se da de baja automáticamente salvo que se renueve el abono mensual.</div>
+</div>
+
+<!-- ═══ SLIDE 8 ═══ -->
+<div class="slide s8" data-n="08 / 08">
+  <div class="glow-top"></div>
+  <div class="glow-blue"></div>
+  <div class="content">
+    <div class="big1">EL TORNEO EMPIEZA</div>
+    <div class="big2">11 DE JUNIO</div>
+    <div class="tagline">Hay tiempo para tenerlo listo.<br>Arrancamos con el 50% del pago.</div>
+    <div class="price-box">
+      <div class="p-main">$300.000</div>
+      <div class="p-sep">desarrollo</div>
+      <div class="p-sep">+</div>
+      <div class="p-sub">$25.000/mes</div>
+    </div>
+  </div>
+  <div class="foot">Propuesta válida · Desarrollo a medida · El código queda para futuras ediciones</div>
+</div>
+
+</div><!-- /deck -->
+
+<script>
+const slides = document.querySelectorAll('.slide');
+const nav = document.getElementById('nav');
+
+// Build nav dots
+slides.forEach((_, i) => {
+  const btn = document.createElement('button');
+  btn.className = 'nav-dot' + (i === 0 ? ' active' : '');
+  btn.title = 'Slide ' + (i + 1);
+  btn.onclick = () => slides[i].scrollIntoView({ behavior: 'smooth', block: 'center' });
+  nav.appendChild(btn);
+});
+
+// Intersection observer for scroll animations + active dot
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    const i = [...slides].indexOf(entry.target);
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      document.querySelectorAll('.nav-dot').forEach((d, j) => d.classList.toggle('active', j === i));
+    }
+  });
+}, { threshold: 0.4 });
+
+slides.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>
